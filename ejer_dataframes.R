@@ -263,3 +263,5 @@ sum(is.na(df))
 
 
 
+# guardando un archivo:
+saveRDS(df3, file = "mi_df.rds")  # y ya tenemos un df guardado.
