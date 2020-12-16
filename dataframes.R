@@ -59,8 +59,27 @@ cbind(mi_archivo, columna_nueva)
 # y sobreescribimos el dataframe:
 mi_archivo <- cbind(mi_archivo, columna_nueva)
 
-# o también: (pero es mejor con la función cbind)
-mi_archivo <- data.frame(mi_archivo, col_5 = columna_nueva)
+# o también: (para string es mejor porque podemos meter argumento stringsasf)
+mi_archivo <- data.frame(mi_archivo, col_5 = columna_nueva, stringsAsFactors = F)
 mi_archivo
 
+# otra forma de crear una nueva columna:
+mi_archivo$nueva_col <- columna_nueva # le añado lo que quiero.
+mi_archivo
+
+# rbind
+r1 <- data.frame(a = 1, b = 2, c = "X")
+r2 <- data.frame(a = 3, b = 4, c = "Y")
+r3 <- data.frame(a = 5, b = 6, c = "Z")
+rbind(r1, r2, r3)
+
+# el do.call
+lista_filas <- list(r1, r2, r3)
+rbind(lista_filas[[1]], lista_filas[[2]], lista_filas[[3]])
+
+# el do.call sería lo equivalente a la celda anterior de código
+do.call(rbind, lista_filas)
+
+# el str es como el describe de python:
+str(mi_archivo)
 
